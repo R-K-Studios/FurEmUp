@@ -18,6 +18,7 @@
     <object>objects\oPlayer</object>
     <object>objects\oEntity</object>
     <object>objects\oInput</object>
+    <object>objects\oEnemyEntity</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
