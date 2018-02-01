@@ -3,23 +3,41 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <datafiles number="2" name="datafiles"/>
+  <NewExtensions>
+    <extension index="0">extensions\Multiplayer - GMnet ENGINE</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sSquare</sprite>
     <sprite>sprites\sCharacterPlaceholder</sprite>
+    <sprite>sprites\sHPBar</sprite>
+    <sprite>sprites\sFaces</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgBeach1</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\draw_text_shadow.gml</script>
+    <script>scripts\draw_text_outline.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\fntBrushS</font>
+    <font>fonts\fntBrushL</font>
+    <font>fonts\fntBerlin20</font>
+  </fonts>
   <objects name="objects">
     <object>objects\oBarrier</object>
     <object>objects\oPlayer</object>
     <object>objects\oEntity</object>
     <object>objects\oInput</object>
+    <object>objects\oGame</object>
+    <object>objects\oHUD</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Initialize</room>
+    <room>rooms\room2</room>
     <room>rooms\room0</room>
   </rooms>
   <help>
