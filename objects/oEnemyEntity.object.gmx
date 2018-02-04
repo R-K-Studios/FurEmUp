@@ -30,8 +30,29 @@
 //movement variables
 vsp = 0; //current vertical speed
 hsp = 0; //current horizontal speed
-maxVsp = 5; //Maximum vertical speed
-maxHsp = 8; //Maximum horizontal speed
+maxVsp = 4; //Maximum vertical speed
+maxHsp = 6; //Maximum horizontal speed
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>collisionSphere = instance_create(x, y, oCollision);
 </string>
           </argument>
         </arguments>
@@ -54,14 +75,17 @@ maxHsp = 8; //Maximum horizontal speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//check the direction that the player is from this entity
-var angle = point_direction(x,y, oPlayer.x, oPlayer.y);
-
+            <string>///Enemy follow player movement
+//get closest player
+var nearestPlayer = instance_nearest(x, y, oPlayer);
+var nearestEnemy = instance_nearest(x, y, oEnemyEntity);
+//check the direction that the player is from this entity
+angle = point_direction(x,y, nearestPlayer.x, nearestPlayer.y);
 //find the distance to the player
-var distance = point_distance(x, y, oPlayer.x, oPlayer.y);
+var distance = point_distance(x, y, nearestPlayer.x, nearestPlayer.y);
 
 //if the player is within a range, move towrads them, if not stay still
-if(distance &lt; 500 &amp;&amp; distance &gt; 100) {
+if(distance &lt; 800 &amp;&amp; distance &gt; 250) {
     //movment towards player
     hsp = maxHsp;
     vsp = maxVsp;
@@ -84,6 +108,10 @@ if(!place_free(x+hsp,y)){
     while(place_free(x+sign(hsp),y)) {x+=sign(hsp);} //snap to edge of blockage
     hsp=0; //no need to mover further
 }
+
+//lock to 45 degree movment
+constrain_angle(angle);
+
 //apply movement
 x += lengthdir_x(hsp, angle);
 y += lengthdir_y(vsp, angle);

@@ -13,12 +13,16 @@
     <background>background\bgBeach1</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\constrain_angle.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\oBarrier</object>
     <object>objects\oPlayer</object>
     <object>objects\oEntity</object>
     <object>objects\oInput</object>
     <object>objects\oEnemyEntity</object>
+    <object>objects\oCollision</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
